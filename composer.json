@@ -1,0 +1,16 @@
+{
+    "name": "ifcastle/protocol-contracts",
+    "description": "Protocol contracts.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["Protocol", "contracts"],
+    "autoload": {
+        "psr-4": {
+            "IfCastle\\Protocol\\": "src/"
+        }
+    },
+    "require": {
+        "ifcastle/async-contracts": "^0.5.0",
+        "ifcastle/di": "^0.6.8"
+    }
+}
