@@ -3,11 +3,15 @@ declare(strict_types=1);
 
 namespace IfCastle\Protocol;
 
-class Request                       implements  RequestInterface,
-                                                RequestParametersMutableInterface,
-                                                HeadersMutableInterface,
-                                                ImmutableInterface
+use League\Uri\Contracts\UriInterface;
+
+class Request                       implements RequestInterface,
+                                               RequestParametersMutableInterface,
+                                               HeadersMutableInterface,
+                                               ImmutableInterface
 {
+    protected string $method;
+    protected UriInterface $uri;
     protected RequestContextInterface $requestContext;
     protected array $headers            = [];
     protected array $parameters         = [];
@@ -16,6 +20,18 @@ class Request                       implements  RequestInterface,
      */
     protected array $uploadedFiles      = [];
     protected bool $isImmutable         = false;
+    
+    #[\Override]
+    public function getMethod(): string
+    {
+        return $this->method;
+    }
+    
+    #[\Override]
+    public function getUri(): UriInterface
+    {
+        return $this->uri;
+    }
     
     #[\Override]
     public function getHeaders(): array
