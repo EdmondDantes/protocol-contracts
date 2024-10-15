@@ -11,6 +11,7 @@
     },
     "require": {
         "ifcastle/async-contracts": "^0.5.0",
-        "ifcastle/di": "^0.6.8"
+        "ifcastle/di": "^0.6.8",
+        "ifcastle/exceptions": "^5.0"
     }
 }
