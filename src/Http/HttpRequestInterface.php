@@ -6,9 +6,11 @@ namespace IfCastle\Protocol\Http;
 use IfCastle\Async\ReadableStreamInterface;
 use IfCastle\Protocol\HeadersInterface;
 use IfCastle\Protocol\RequestParametersInterface;
+use Psr\Http\Message\UriInterface as PsrUri;
 
 interface HttpRequestInterface extends HeadersInterface, RequestParametersInterface
 {
+    public function getUri(): PsrUri;
     public function getMethod(): string;
     public function getCookies(): array;
     

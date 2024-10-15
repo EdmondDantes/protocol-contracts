@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace IfCastle\Protocol;
 
-use League\Uri\Contracts\UriInterface;
+use Psr\Http\Message\UriInterface as PsrUri;
 
 class Request                       implements RequestInterface,
                                                RequestParametersMutableInterface,
@@ -11,7 +11,7 @@ class Request                       implements RequestInterface,
                                                ImmutableInterface
 {
     protected string $method;
-    protected UriInterface $uri;
+    protected PsrUri $uri;
     protected RequestContextInterface $requestContext;
     protected array $headers            = [];
     protected array $parameters         = [];
@@ -28,7 +28,7 @@ class Request                       implements RequestInterface,
     }
     
     #[\Override]
-    public function getUri(): UriInterface
+    public function getUri(): PsrUri
     {
         return $this->uri;
     }
