@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1088ce18b327dbc3a606cfca4f3f4b07",
+    "content-hash": "718d61b88d3a05792e82dde364f4f7ee",
     "packages": [
         {
             "name": "ifcastle/async-contracts",
@@ -136,6 +136,54 @@
                 "source": "https://github.com/EdmondDantes/BaseException/tree/v5.0.2"
             },
             "time": "2024-09-08T08:11:08+00:00"
+        },
+        {
+            "name": "ifcastle/type-definitions",
+            "version": "v0.5.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EdmondDantes/type-definitions.git",
+                "reference": "fa1f1047cfd7c4952eab7d4a95c430939e983523"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EdmondDantes/type-definitions/zipball/fa1f1047cfd7c4952eab7d4a95c430939e983523",
+                "reference": "fa1f1047cfd7c4952eab7d4a95c430939e983523",
+                "shasum": ""
+            },
+            "require": {
+                "ifcastle/exceptions": "^5.0"
+            },
+            "require-dev": {
+                "amphp/php-cs-fixer-config": "^2.1",
+                "friendsofphp/php-cs-fixer": "^3.60",
+                "phpunit/phpunit": "^11.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "IfCastle\\TypeDefinitions\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Library for defining data types at the business logic layer. Data hydration and serialization based on type definitions.",
+            "keywords": [
+                "compilation",
+                "data",
+                "definitions",
+                "hydration",
+                "serialization",
+                "types",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/EdmondDantes/type-definitions/issues",
+                "source": "https://github.com/EdmondDantes/type-definitions/tree/v0.5.10"
+            },
+            "time": "2024-10-17T13:19:08+00:00"
         },
         {
             "name": "psr/http-message",
