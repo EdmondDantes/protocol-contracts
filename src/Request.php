@@ -3,17 +3,18 @@ declare(strict_types=1);
 
 namespace IfCastle\Protocol;
 
+use IfCastle\Exceptions\LogicalException;
 use Psr\Http\Message\UriInterface as PsrUri;
 
 class Request                       implements RequestInterface,
                                                RequestParametersMutableInterface,
-                                               HeadersMutableInterface,
-                                               ImmutableInterface
+                                               HeadersMutableInterface
 {
+    use HeadersMutableTrait;
+    
     protected string $method;
     protected PsrUri $uri;
     protected RequestContextInterface $requestContext;
-    protected array $headers            = [];
     protected array $parameters         = [];
     /**
      * @var array FileContainerInterface[]
@@ -31,68 +32,6 @@ class Request                       implements RequestInterface,
     public function getUri(): PsrUri
     {
         return $this->uri;
-    }
-    
-    #[\Override]
-    public function getHeaders(): array
-    {
-        return $this->headers;
-    }
-    
-    #[\Override]
-    public function hasHeader(string $name): bool
-    {
-        return array_key_exists(strtolower($name), $this->headers);
-    }
-    
-    #[\Override]
-    public function getHeader(string $name): array
-    {
-        return $this->headers[strtolower($name)] ?? [];
-    }
-    
-    #[\Override]
-    public function getHeaderLine(string $name): string
-    {
-        return implode(',', $this->getHeader($name));
-    }
-    
-    #[\Override]
-    public function setHeaders(array $headers): static
-    {
-        $this->throwIfImmutable();
-        
-        $this->headers              = $headers;
-        return $this;
-    }
-    
-    #[\Override]
-    public function setHeader(string $header, array|string $value): static
-    {
-        $this->throwIfImmutable();
-        
-        $header                     = strtolower($header);
-        
-        if(false === array_key_exists($header, $this->headers)) {
-            $this->headers[$header] = [];
-        }
-        
-        if(is_array($value)) {
-            $this->headers[$header] = array_merge($this->headers[$header], $value);
-        } else {
-            $this->headers[$header][] = $value;
-        }
-        
-        return $this;
-    }
-    
-    #[\Override]
-    public function resetHeaders(): static
-    {
-        $this->throwIfImmutable();
-        
-        $this->headers              = [];
-        return $this;
     }
     
     #[\Override]
@@ -163,6 +102,9 @@ class Request                       implements RequestInterface,
         return true;
     }
     
+    /**
+     * @throws LogicalException
+     */
     #[\Override]
     public function setRequestParameters(array $parameters): void
     {
@@ -171,6 +113,9 @@ class Request                       implements RequestInterface,
         $this->parameters           = $parameters;
     }
     
+    /**
+     * @throws LogicalException
+     */
     #[\Override]
     public function mergeRequestParameter(array $parameters): void
     {
@@ -179,6 +124,9 @@ class Request                       implements RequestInterface,
         $this->parameters           = array_merge($this->parameters, $parameters);
     }
     
+    /**
+     * @throws LogicalException
+     */
     #[\Override]
     public function setUploadedFiles(array $files): void
     {
@@ -203,25 +151,5 @@ class Request                       implements RequestInterface,
     public function hasUploadedFile(string $name): bool
     {
         return array_key_exists($name, $this->uploadedFiles);
-    }
-    
-    #[\Override]
-    public function isImmutable(): bool
-    {
-        return $this->isImmutable;
-    }
-    
-    #[\Override]
-    public function asImmutable(): static
-    {
-        $this->isImmutable          = true;
-        return $this;
-    }
-    
-    protected function throwIfImmutable(): void
-    {
-        if($this->isImmutable) {
-            throw new \LogicException('Request is immutable');
-        }
     }
 }

@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace IfCastle\Protocol;
 
-interface RequestParametersMutableInterface extends RequestParametersInterface
+interface RequestParametersMutableInterface extends RequestParametersInterface, \IfCastle\DesignPatterns\Immutable\ImmutableInterface
 {
     public function setRequestParameters(array $parameters): void;
     
