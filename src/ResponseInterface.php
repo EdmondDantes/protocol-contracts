@@ -5,5 +5,5 @@ namespace IfCastle\Protocol;
 
 interface ResponseInterface extends ProtocolInterface
 {
-    
+
 }
