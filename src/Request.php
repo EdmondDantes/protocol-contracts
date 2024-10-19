@@ -47,6 +47,12 @@ class Request                       implements RequestInterface,
     }
     
     #[\Override]
+    public function getRequestParameters(): array
+    {
+        return $this->parameters;
+    }
+    
+    #[\Override]
     public function getRequestParameter(string $name): mixed
     {
         return $this->parameters[$name] ?? null;

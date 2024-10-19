@@ -9,6 +9,8 @@ namespace IfCastle\Protocol;
  */
 interface RequestParametersInterface
 {
+    public function getRequestParameters(): array;
+    
     public function getRequestParameter(string $name): mixed;
     
     /**
