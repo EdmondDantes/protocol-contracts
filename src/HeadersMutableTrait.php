@@ -32,7 +32,15 @@ trait HeadersMutableTrait
     {
         $this->throwIfImmutable();
         
-        $this->headers[$header]     = is_array($value) ? $value : [$value];
+        if(array_key_exists($header, $this->headers) && !is_array($this->headers[$header])) {
+            $this->headers[$header] = [$this->headers[$header]];
+        }
+        
+        if(!is_array($value)) {
+            $this->headers[$header][] = $value;
+        } else {
+            $this->headers[$header] = array_merge($this->headers[$header], $value);
+        }
         
         return $this;
     }
