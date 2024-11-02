@@ -6,6 +6,9 @@ namespace IfCastle\Protocol;
 
 trait HeadersTrait
 {
+    /**
+     * @var array<string, array<string>>
+     */
     protected array $headers        = [];
 
     public function getHeaders(): array

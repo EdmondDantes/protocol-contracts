@@ -20,14 +20,15 @@ class Request implements
 
     protected RequestContextInterface $requestContext;
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $parameters         = [];
 
     /**
-     * @var array FileContainerInterface[]
+     * @var FileContainerInterface[]
      */
     protected array $uploadedFiles      = [];
-
-    protected bool $isImmutable         = false;
 
     #[\Override]
     public function getMethod(): string
@@ -107,6 +108,7 @@ class Request implements
     public function isRequestParametersDefined(string ...$names): bool
     {
         foreach ($names as $name) {
+            /* @phpstan-ignore-next-line */
             if (null === $this->parameters[$name] ?? null) {
                 return false;
             }

@@ -14,5 +14,8 @@ interface RequestInterface
 
     public function getRequestContext(): RequestContextInterface;
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getRequestContextParameters(): array;
 }

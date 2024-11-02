@@ -19,8 +19,8 @@ trait HeadersMutableTrait
     {
         $this->throwIfImmutable();
 
-        foreach ($headers as $header) {
-            $this->setHeader($header, $header);
+        foreach ($headers as $key => $header) {
+            $this->setHeader($key, $header);
         }
 
         return $this;
@@ -33,6 +33,7 @@ trait HeadersMutableTrait
     {
         $this->throwIfImmutable();
 
+        /* @phpstan-ignore-next-line */
         if (\array_key_exists($header, $this->headers) && !\is_array($this->headers[$header])) {
             $this->headers[$header] = [$this->headers[$header]];
         }
