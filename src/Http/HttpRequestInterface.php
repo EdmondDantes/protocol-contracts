@@ -12,10 +12,13 @@ use Psr\Http\Message\UriInterface as PsrUri;
 interface HttpRequestInterface extends HeadersInterface, RequestParametersInterface
 {
     public function getUri(): PsrUri;
+
     public function getMethod(): string;
+
     public function getCookies(): array;
 
     public function getBodySize(): int;
+
     public function getBody(): string;
 
     public function getBodyStream(): ?ReadableStreamInterface;

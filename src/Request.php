@@ -15,13 +15,18 @@ class Request implements
     use HeadersMutableTrait;
 
     protected string $method;
+
     protected PsrUri $uri;
+
     protected RequestContextInterface $requestContext;
+
     protected array $parameters         = [];
+
     /**
      * @var array FileContainerInterface[]
      */
     protected array $uploadedFiles      = [];
+
     protected bool $isImmutable         = false;
 
     #[\Override]
