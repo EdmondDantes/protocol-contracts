@@ -15,12 +15,17 @@ namespace IfCastle\Protocol\Exceptions;
 interface ProblemDetailsInterface
 {
     public const string TYPE = 'type';
+
     public const string TITLE = 'title';
+
     public const string STATUS = 'status';
+
     public const string DETAIL = 'detail';
+
     public const string INSTANCE = 'instance';
+
     public const string ERRORS = 'errors';
-    
+
     /**
      * A URI reference [RFC3986] that identifies the
      * problem type.  This specification encourages that, when
@@ -61,7 +66,7 @@ interface ProblemDetailsInterface
      *
      */
     public function getInstance(): ?string;
-    
+
     /**
      * Additional members that are not part of the Problem Details Object
      * (extension members).

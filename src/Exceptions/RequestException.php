@@ -93,6 +93,7 @@ class RequestException extends BaseException implements ProblemDetailsInterface,
     #[\Override]
     public function getErrors(): array
     {
+        /* @phpstan-ignore-next-line */
         return $this->data[ProblemDetailsInterface::ERRORS] ?? [];
     }
 
