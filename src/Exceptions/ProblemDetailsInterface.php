@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace IfCastle\Protocol\Exceptions;
 
-use Psr\Http\Message\UriInterface;
-
 /**
  * The Problem Details Object is a way to carry machine-readable details of errors in a HTTP response
  * to avoid the need to define new error response formats for HTTP APIs.
@@ -16,6 +14,13 @@ use Psr\Http\Message\UriInterface;
  */
 interface ProblemDetailsInterface
 {
+    public const string TYPE = 'type';
+    public const string TITLE = 'title';
+    public const string STATUS = 'status';
+    public const string DETAIL = 'detail';
+    public const string INSTANCE = 'instance';
+    public const string ERRORS = 'errors';
+    
     /**
      * A URI reference [RFC3986] that identifies the
      * problem type.  This specification encourages that, when
@@ -24,7 +29,7 @@ interface ProblemDetailsInterface
      * this member is not present, its value is assumed to be
      * "about:blank".
      */
-    public function getType(): UriInterface;
+    public function getType(): string;
 
     /**
      * A short, human-readable summary of the problem
@@ -55,7 +60,21 @@ interface ProblemDetailsInterface
      * information if dereferenced.
      *
      */
-    public function getInstance(): ?UriInterface;
+    public function getInstance(): ?string;
+    
+    /**
+     * Additional members that are not part of the Problem Details Object
+     * (extension members).
+     *
+     * Structure
+     * {
+     * "pointer": "/data/attributes/username",
+     * "detail": "Username must be at least 3 characters long."
+     * }
+     *
+     * @return array<string, array{pointer: string, detail: string}>
+     */
+    public function getErrors(): array;
 
     /**
      * Additional members that are not part of the Problem Details Object

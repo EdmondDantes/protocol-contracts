@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace IfCastle\Protocol\Http\Exceptions;
+namespace IfCastle\Protocol\Exceptions;
 
 use IfCastle\Exceptions\BaseExceptionInterface;
 use IfCastle\Exceptions\RuntimeException;
