@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace IfCastle\Protocol\Http;
@@ -18,7 +19,7 @@ interface HttpResponseInterface extends ResponseInterface, HeadersInterface
      * @return int Status code.
      */
     public function getStatusCode(): int;
-    
+
     /**
      * Gets the response reason phrase associated with the status code.
      *
@@ -33,6 +34,6 @@ interface HttpResponseInterface extends ResponseInterface, HeadersInterface
      * @return string Reason phrase; must return an empty string if none present.
      */
     public function getReasonPhrase(): string;
-    
+
     public function getBody(): string|ReadableStreamInterface;
 }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace IfCastle\Protocol;
@@ -6,47 +7,47 @@ namespace IfCastle\Protocol;
 interface HeadersInterface
 {
     public const string ACCEPT             = 'Accept';
-    
+
     public const string ACCEPT_CHARSET     = 'Accept-Charset';
-    
+
     public const string ACCEPT_ENCODING    = 'Accept-Encoding';
-    
+
     public const string ACCEPT_LANGUAGE    = 'Accept-Language';
-    
+
     public const string ACCEPT_RANGES      = 'Accept-Ranges';
-    
+
     public const string ACCESS_CONTROL     = 'Access-Control';
-    
+
     public const string CONTENT_TYPE       = 'Content-Type';
-    
+
     public const string AUTHORIZATION      = 'Authorization';
-    
+
     public const string CACHE_CONTROL      = 'Cache-Control';
-    
+
     public const string CONNECTION         = 'Connection';
-    
+
     public const string COOKIE             = 'Cookie';
-    
+
     public const string CONTENT_LENGTH     = 'Content-Length';
-    
+
     public const string CONTENT_MD5        = 'Content-MD5';
-    
+
     public const string CONTENT_RANGE      = 'Content-Range';
-    
+
     public const string MIME_FORM_URLENCODED = 'application/x-www-form-urlencoded';
-    
+
     public const string MIME_MULTIPART_FORM_DATA = 'multipart/form-data';
-    
+
     public const string MIME_APPLICATION_JSON = 'application/json';
-    
+
     public const string MIME_APPLICATION_XML = 'application/xml';
-    
+
     public const string MIME_APPLICATION_OCTET_STREAM = 'application/octet-stream';
-    
+
     public const string MIME_TEXT_PLAIN = 'text/plain';
-    
+
     public const string MIME_TEXT_HTML = 'text/html';
-    
+
     /**
      * Retrieves all message header values.
      *
@@ -73,7 +74,7 @@ interface HeadersInterface
      *     for that header.
      */
     public function getHeaders(): array;
-    
+
     /**
      * Checks if a header exists by the given case-insensitive name.
      *
@@ -83,7 +84,7 @@ interface HeadersInterface
      *     no matching header name is found in the message.
      */
     public function hasHeader(string $name): bool;
-    
+
     /**
      * Retrieves a message header value by the given case-insensitive name.
      *
@@ -99,7 +100,7 @@ interface HeadersInterface
      *    return an empty array.
      */
     public function getHeader(string $name): array;
-    
+
     /**
      * Retrieves a comma-separated string of the values for a single header.
      *
