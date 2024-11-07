@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace IfCastle\Protocol;
 
 use IfCastle\Exceptions\LogicalException;
-use Psr\Http\Message\UriInterface as PsrUri;
+use League\Uri\Contracts\UriInterface;
 
 class Request implements
     RequestInterface,
@@ -16,7 +16,7 @@ class Request implements
 
     protected string $method;
 
-    protected PsrUri $uri;
+    protected UriInterface $uri;
 
     protected RequestContextInterface $requestContext;
 
@@ -37,7 +37,7 @@ class Request implements
     }
 
     #[\Override]
-    public function getUri(): PsrUri
+    public function getUri(): UriInterface
     {
         return $this->uri;
     }

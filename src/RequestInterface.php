@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace IfCastle\Protocol;
 
-use Psr\Http\Message\UriInterface as PsrUri;
+use League\Uri\Contracts\UriInterface;
 
 interface RequestInterface
 {
     public function getMethod(): string;
 
-    public function getUri(): PsrUri;
+    public function getUri(): UriInterface;
 
     public function getRequestContext(): RequestContextInterface;
 

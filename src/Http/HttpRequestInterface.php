@@ -14,7 +14,7 @@ interface HttpRequestInterface extends HeadersInterface, RequestParametersInterf
     public function getUri(): PsrUri;
 
     public function getMethod(): string;
-    
+
     /**
      * @return array<string, string>
      */

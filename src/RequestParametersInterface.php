@@ -15,9 +15,6 @@ interface RequestParametersInterface
      */
     public function getRequestParameters(): array;
 
-    /**
-     * @return mixed
-     */
     public function getRequestParameter(string $name): mixed;
 
     /**
