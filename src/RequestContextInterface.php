@@ -6,8 +6,9 @@ namespace IfCastle\Protocol;
 
 /**
  * @template-extends \ArrayAccess<string, scalar|scalar[]|null>
+ * @template-extends \IteratorAggregate<string, scalar|scalar[]|null>
  */
-interface RequestContextInterface extends \ArrayAccess
+interface RequestContextInterface extends \ArrayAccess, \IteratorAggregate
 {
     public const string REMOTE_ADDRESS  = 'address';
 
